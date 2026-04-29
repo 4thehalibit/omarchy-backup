@@ -1,0 +1,25 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: omarchy-windows
+    environment:
+      VERSION: "11"
+      RAM_SIZE: "32G"
+      CPU_CORES: "12"
+      DISK_SIZE: "64G"
+      GPU: "qxl"
+      VM_NET_DEV: "wlan0"
+      USERNAME: "vwestberg"
+      PASSWORD: "West11berg"
+    devices:
+      - /dev/kvm
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    network_mode: host
+    volumes:
+      - /lib/modules:/lib/modules:ro
+      - /home/vwestberg/.windows:/storage
+      - /home/vwestberg/Windows:/shared
+    restart: always
+    stop_grace_period: 2m

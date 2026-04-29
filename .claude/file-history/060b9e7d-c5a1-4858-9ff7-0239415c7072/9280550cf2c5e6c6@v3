@@ -1,0 +1,136 @@
+# Claude Web vs Claude Code (Desktop) — What's Different
+
+This document explains the key differences between **Claude on the web** (claude.ai) and **Claude Code** (the desktop app) so you know what to expect from each.
+
+---
+
+## Quick Summary
+
+| Feature | Claude Web (claude.ai) | Claude Code (Desktop) |
+|---|---|---|
+| Skills / Custom Instructions | Stored on Anthropic's servers | Stored locally on your PC |
+| Memory | Stored on Anthropic's servers | Stored locally on your PC |
+| Syncs across devices | Yes | No |
+| Access to your local files | No | Yes |
+| Run commands on your PC | No | Yes |
+| Works offline | No | Partially |
+| Looks like | A website in your browser | A terminal/command-line window |
+| Login | Your Anthropic account | Same Anthropic account |
+| Hooks / Automation | No | Yes |
+
+---
+
+## Important: These Are Two Separate Products
+
+Claude Web and Claude Code share the same AI, but they are **two separate products** that do not talk to each other.
+
+- They use the same Anthropic account to log in.
+- Skills, memory, settings, and conversations **do not sync** between them.
+- What you set up in one will **not** appear in the other.
+
+---
+
+## What Claude Code Looks Like
+
+Claude Code does **not** look like a typical Windows application. It opens as a **terminal window** (similar to Command Prompt or PowerShell). This is expected — it is designed for working directly with files and code on your computer.
+
+If a user opens Claude Code and sees a black/text window, that is correct.
+
+---
+
+## Skills / Custom Instructions
+
+Skills are saved responses, behaviors, or instructions you give Claude to follow.
+
+### Claude Web (claude.ai)
+- Skills are saved to your Anthropic account online.
+- Available on any device — phone, tablet, another PC — as long as you are logged in.
+- Managed through the claude.ai website settings.
+
+### Claude Code (Desktop — Windows)
+- Skills are saved as files on your local PC.
+- Location: `C:\Users\<YourUsername>\AppData\Roaming\Claude\skills\`
+- To open this folder in File Explorer, paste this into the address bar: `%APPDATA%\Claude\skills\`
+- Skills are **only on the PC where they were created**.
+- Logging into a different PC will not bring your skills with you — you would need to copy the files manually.
+
+---
+
+## Memory
+
+Memory is Claude's ability to remember things about you, your preferences, or your projects over time.
+
+### Claude Web (claude.ai)
+- Memory is tied to your account and stored online.
+- Available across all devices where you are logged in.
+
+### Claude Code (Desktop — Windows)
+- Memory is saved as files on your local PC.
+- Location: `C:\Users\<YourUsername>\AppData\Roaming\Claude\projects\<project name>\memory\`
+- Memory is specific to each PC and each project folder.
+- It does **not** sync to other PCs or to claude.ai.
+
+---
+
+## File and System Access
+
+### Claude Web (claude.ai)
+- Claude cannot see or access files on your PC unless you upload them manually.
+- Claude cannot run programs or commands on your machine.
+
+### Claude Code (Desktop)
+- Claude can read, write, and edit files on your PC directly.
+- Claude can run commands in the terminal on your machine.
+- This makes Claude Code much more powerful for tasks involving your local files and projects.
+
+---
+
+## Internet Connection
+
+Both products require an internet connection to work. Claude Code is a desktop application, but it still connects to Anthropic's servers to generate responses. It is **not** fully offline.
+
+---
+
+## Conversations
+
+Conversations are not shared between the two products. A conversation started on claude.ai will not appear in Claude Code, and vice versa. Each product keeps its own separate conversation history.
+
+---
+
+## Settings and Automation (Hooks)
+
+Hooks are automated actions — for example, running a task automatically whenever Claude finishes a response. This is a **Claude Code-only** feature and has no equivalent on claude.ai.
+
+---
+
+## When to Use Which
+
+| Use Case | Recommended |
+|---|---|
+| Quick questions, general chat | Either |
+| Working with files or code on your PC | Claude Code |
+| Needs to work across multiple devices | Claude Web |
+| Automated workflows tied to your PC | Claude Code |
+| Users who are not comfortable with a terminal window | Claude Web |
+
+---
+
+## Common Confusion Points
+
+**"My skills are missing on my other computer."**
+Claude Code skills are stored only on the PC where they were created. To move them, copy the folder `%APPDATA%\Claude\skills\` from the old PC to the same location on the new PC.
+
+**"My skills from the website don't show up in Claude Code."**
+Web skills and Claude Code skills are completely separate. Skills created on claude.ai do not transfer to Claude Code. They would need to be recreated locally.
+
+**"Claude doesn't remember anything from last time."**
+Check which product was used last time. Memory does not sync between web and desktop. Claude Code memory is also specific to each PC and each project folder.
+
+**"Claude Code looks different from the website."**
+Claude Code is a terminal application — it will look and feel different from claude.ai. It may also behave differently because it has its own local skills, memory, and settings that are separate from the web version.
+
+**"I can't find the skills or memory folder."**
+Open File Explorer and type `%APPDATA%\Claude\` in the address bar and press Enter. This will take you directly to Claude Code's local data folder on your PC.
+
+**"Does Claude Code cost extra?"**
+No. Claude Code uses the same Anthropic account and subscription as claude.ai. You do not need a separate subscription.

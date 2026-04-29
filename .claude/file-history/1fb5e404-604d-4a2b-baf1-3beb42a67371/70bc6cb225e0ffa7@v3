@@ -1,0 +1,149 @@
+@import "../omarchy/current/theme/waybar.css";
+
+* {
+  background-color: transparent;
+  color: @foreground;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: 'CaskaydiaMono Nerd Font';
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: rgba(14, 11, 9, 0.92);
+  border-radius: 14px;
+}
+
+.modules-left {
+  margin-left: 4px;
+}
+
+.modules-right {
+  margin-right: 4px;
+}
+
+/* Workspaces */
+#workspaces {
+  margin-left: 4px;
+}
+
+#workspaces button {
+  all: initial;
+  color: @foreground;
+  font-family: 'CaskaydiaMono Nerd Font';
+  font-size: 13px;
+  padding: 0 8px;
+  margin: 4px 2px;
+  border-radius: 8px;
+  opacity: 0.4;
+}
+
+#workspaces button.active {
+  background-color: @foreground;
+  color: @background;
+  opacity: 1;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0 10px;
+}
+
+#workspaces button.empty {
+  opacity: 0.2;
+}
+
+#workspaces button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+}
+
+/* Pill-style right modules */
+#battery,
+#cpu,
+#pulseaudio,
+#network,
+#bluetooth {
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 2px 10px;
+  margin: 4px 3px;
+}
+
+#battery.warning {
+  color: #e5c07b;
+}
+
+#battery.critical {
+  color: #e06c75;
+}
+
+#custom-omarchy {
+  margin: 0 8px;
+}
+
+#clock {
+  margin: 0 8px;
+}
+
+#custom-update {
+  font-size: 10px;
+  margin: 0 7.5px;
+}
+
+#tray {
+  margin-right: 8px;
+}
+
+#custom-expand-icon {
+  margin-right: 10px;
+}
+
+#custom-screenrecording-indicator,
+#custom-idle-indicator,
+#custom-notification-silencing-indicator {
+  min-width: 12px;
+  margin-left: 5px;
+  margin-right: 0;
+  font-size: 10px;
+  padding-bottom: 1px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: #a55555;
+}
+
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 7.5px;
+}
+
+#custom-voxtype.recording {
+  color: #a55555;
+}
+
+#custom-idle-indicator.active,
+#custom-notification-silencing-indicator.active {
+  color: #a55555;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+tooltip {
+  background-color: @background;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'CaskaydiaMono Nerd Font';
+  font-size: 13px;
+}
+
+#custom-calendar {
+  margin: 0 6px;
+  opacity: 0.7;
+}
+
+#custom-calendar:hover {
+  opacity: 1;
+}

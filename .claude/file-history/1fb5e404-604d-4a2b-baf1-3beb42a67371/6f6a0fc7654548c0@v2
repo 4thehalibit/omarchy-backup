@@ -1,0 +1,45 @@
+
+
+###############################################################################
+# Hyprland Monitor Configuration — LAST KNOWN WORKING STATE
+###############################################################################
+
+# IMPORTANT:
+# Do NOT enable auto layout fallback
+# monitor=,preferred,auto,auto
+
+
+###############################################################################
+# HOME SETUP (HDMI 4K monitor)
+###############################################################################
+
+# Home 4K ViewSonic
+ monitor=desc:VX3211-4K,3840x2160@60,0x0,1.5,transform,0
+
+# Laptop at home — right, bottom-aligned
+ monitor=eDP-1,2560x1600@165,3840x440,1.6,transform,0
+
+
+
+
+
+
+
+###############################################################################
+# OFFICE SETUP (STABLE, WORKING)
+###############################################################################
+
+# Bottom office monitor (DP-9)
+monitor=desc:VC42235Q2258,1920x1080@60,0x0,1,transform,0
+
+# Top office monitor (DP-10), flipped 180°, stacked ABOVE DP-9
+monitor=DP-10,1920x1080@60,0x-1080,1,transform,2
+
+# Laptop — to the RIGHT of LOWER monitor ONLY (stable)
+monitor=eDP-1,2560x1600@165,1920x-580,1.6,transform,0
+
+
+###############################################################################
+# END OF FILE
+###############################################################################
+

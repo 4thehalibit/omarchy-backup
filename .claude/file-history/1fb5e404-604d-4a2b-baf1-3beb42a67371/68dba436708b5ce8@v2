@@ -1,0 +1,25 @@
+---
+name: Omarchy Desktop Customization
+description: Customizations made to vwestberg's Omarchy Linux desktop setup
+type: project
+originSessionId: 1fb5e404-604d-4a2b-baf1-3beb42a67371
+---
+Ongoing desktop customization of Omarchy (Hyprland-based Arch Linux).
+
+**Why:** User wants a personalized, polished desktop experience.
+
+**Changes made so far:**
+
+- `~/.config/hypr/hypridle.conf` — screensaver timeout changed to 10min (was 2.5min)
+- `~/.config/omarchy/branding/screensaver.txt` — replaced Omarchy logo with "L&S Electric" ASCII art (slant font for L/Electric/S, big font for &)
+- `~/.config/hypr/hyprlock.conf` — added large clock, date, weather (wttr.in auto-detect), rounded input field, animations enabled
+- `~/.config/waybar/config.jsonc` — floating bar (margin 8px), height 36px, CPU/battery/volume show values, calendar module added
+- `~/.config/waybar/style.css` — floating rounded bar, pill-style module backgrounds, workspace styling
+- `~/.config/waybar/scripts/cal-widget.py` — custom calendar widget: weather + 2 months side by side with box-drawing borders, today highlighted in red
+
+**How to apply:** Run `omarchy-restart-waybar` after waybar changes. Hyprland configs auto-reload.
+
+**Notes:**
+- Weather uses wttr.in auto IP detection — detects Antigo WI instead of Merrill WI (ISP routing quirk, weather data is still accurate)
+- figlet is installed for ASCII art generation
+- User works at L&S Electric and travels frequently

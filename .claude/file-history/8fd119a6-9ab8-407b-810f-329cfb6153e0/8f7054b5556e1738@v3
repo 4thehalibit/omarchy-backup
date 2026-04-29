@@ -1,0 +1,37 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: omarchy-windows
+    environment:
+      VERSION: "11"
+      RAM_SIZE: "32G"
+      CPU_CORES: "12"
+      DISK_SIZE: "64G"
+      GPU: "qxl"
+      VM_NET_DEV: "eth0"
+      USERNAME: "vwestberg"
+      PASSWORD: "West11berg"
+    devices:
+      - /dev/kvm
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - /lib/modules:/lib/modules:ro
+      - /home/vwestberg/.windows:/storage
+      - /home/vwestberg/Windows:/shared
+    restart: always
+    stop_grace_period: 2m
+    networks:
+      macvlan:
+        ipv4_address: 192.168.4.200
+
+networks:
+  macvlan:
+    driver: macvlan
+    driver_opts:
+      parent: wlan0
+    ipam:
+      config:
+        - subnet: 192.168.4.0/22
+          gateway: 192.168.4.1

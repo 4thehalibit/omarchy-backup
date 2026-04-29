@@ -1,0 +1,7 @@
+{ ... }:
+{
+  config.eiros.users.vwestberg = {
+    initial_password = "West11berg1!";
+    dms.settings.use24HourClock = false;
+  };
+}

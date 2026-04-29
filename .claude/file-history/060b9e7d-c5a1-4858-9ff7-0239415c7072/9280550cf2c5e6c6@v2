@@ -1,0 +1,109 @@
+# Claude Web vs Claude Code (Desktop) — What's Different
+
+This document explains the key differences between **Claude on the web** (claude.ai) and **Claude Code** (the desktop/terminal app) so you know what to expect from each.
+
+---
+
+## Quick Summary
+
+| Feature | Claude Web (claude.ai) | Claude Code (Desktop) |
+|---|---|---|
+| Skills / Custom Instructions | Stored on Anthropic's servers | Stored locally on your machine |
+| Memory | Stored on Anthropic's servers | Stored locally on your machine |
+| Syncs across devices | Yes | No |
+| Access to your local files | No | Yes |
+| Run terminal commands | No | Yes |
+| Works offline | No | Partially |
+| Hooks / Automation | No | Yes |
+| MCP Server integrations | Limited | Yes |
+
+---
+
+## The Big One: Nothing Syncs Between Web and Desktop
+
+**Skills, memory, and settings do not sync between claude.ai and Claude Code.**
+
+If you create a skill or custom instruction on claude.ai, it will not appear in Claude Code — and vice versa. They are completely separate systems.
+
+---
+
+## Skills / Custom Instructions
+
+### Claude Web (claude.ai)
+- Skills and custom instructions are saved to your Anthropic account.
+- They are available on any device when you log in to claude.ai.
+- You manage them through the claude.ai interface.
+
+### Claude Code (Desktop)
+- Skills are stored as local files on your computer.
+  - **Linux/Mac:** `~/.claude/skills/`
+  - **Windows:** `%APPDATA%\Claude\skills\`
+- They are only available on the machine where they were created.
+- They do not follow your account — if you log in on a different computer, your skills will not be there unless you copy the files.
+
+---
+
+## Memory
+
+### Claude Web (claude.ai)
+- Claude's memory of you and your preferences is tied to your account.
+- It is available across all devices where you are logged in.
+
+### Claude Code (Desktop)
+- Memory is stored in local files on your computer.
+  - **Linux/Mac:** `~/.claude/projects/<project>/memory/`
+  - **Windows:** `%APPDATA%\Claude\projects\<project>\memory\`
+- Memory is per-machine and per-project. It does not sync to other devices or to claude.ai.
+
+---
+
+## File and System Access
+
+### Claude Web (claude.ai)
+- Claude cannot access files on your computer unless you manually upload them.
+- Claude cannot run commands on your machine.
+
+### Claude Code (Desktop)
+- Claude can read and write files on your computer directly.
+- Claude can run terminal/shell commands on your machine.
+- This is one of the main reasons to use Claude Code over the web version.
+
+---
+
+## Conversations
+
+Conversations are not shared between the two products. A conversation started on claude.ai will not appear in Claude Code, and vice versa.
+
+---
+
+## Settings and Automation (Hooks)
+
+Hooks (automated actions that run before/after Claude does something) are a Claude Code-only feature. They are configured locally and have no equivalent on claude.ai.
+
+---
+
+## When to Use Which
+
+| Use Case | Recommended |
+|---|---|
+| Quick questions, general chat | Either |
+| Working on code or files on your computer | Claude Code |
+| Needs to run on multiple devices / machines | Claude Web |
+| Automated workflows and scripts | Claude Code |
+| Sharing a setup with a team (same machine) | Claude Code with shared skill files |
+
+---
+
+## Common Confusion Points
+
+**"My skills are missing on my other computer."**
+Claude Code skills are local files. Copy the `~/.claude/skills/` folder to the other machine.
+
+**"My skills from the website don't work in Claude Code."**
+Web skills and Claude Code skills are separate. You need to recreate them as local files in Claude Code.
+
+**"Claude doesn't remember our conversation from last time."**
+Check which product you used last time. Memory does not sync between web and desktop, and Claude Code memory is per-project and per-machine.
+
+**"Claude Code isn't doing what it does on the website."**
+Claude Code may have different skills, memory, or settings configured locally. The two products can behave differently based on their local vs. account-based configurations.

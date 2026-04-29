@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+import calendar, json, os, subprocess, time, re
+from datetime import date
+
+CACHE = "/tmp/waybar_weather"
+
+def get_weather():
+    try:
+        if os.path.exists(CACHE) and time.time() - os.path.getmtime(CACHE) < 1800:
+            return open(CACHE).read().strip()
+        r = subprocess.run(
+            ["curl", "-sf", "wttr.in/?format=j1"],
+            capture_output=True, text=True, timeout=5
+        )
+        d = json.loads(r.stdout)
+        c = d['current_condition'][0]
+        w = d['weather'][0]
+        cond = c['weatherDesc'][0]['value']
+        icons = {
+            'sunny': '☀️', 'clear': '🌙', 'partly': '⛅', 'cloud': '☁️',
+            'overcast': '☁️', 'rain': '🌧️', 'drizzle': '🌦️',
+            'snow': '❄️', 'thunder': '⛈️', 'fog': '🌫️', 'mist': '🌫️'
+        }
+        icon = next((v for k, v in icons.items() if k in cond.lower()), '🌡️')
+        result = f"{icon}  {cond}    {c['temp_F']}°F    ↑{w['maxtempF']}°F  ↓{w['mintempF']}°F"
+        open(CACHE, 'w').write(result)
+        return result
+    except:
+        return open(CACHE).read().strip() if os.path.exists(CACHE) else "Weather unavailable"
+
+def get_calendar():
+    today = date.today()
+    months = []
+
+    for i in range(2):
+        month = today.month + i
+        year = today.year
+        if month > 12:
+            month -= 12
+            year += 1
+
+        cal = calendar.TextCalendar(calendar.MONDAY)
+        lines = cal.formatmonth(year, month).strip().split('\n')
+        out = []
+        for line in lines:
+            if year == today.year and month == today.month and str(today.day) in line.split():
+                line = re.sub(
+                    r'\b' + str(today.day) + r'\b',
+                    f'<span color="#ff6b6b"><b>{today.day}</b></span>',
+                    line, count=1
+                )
+            out.append(line)
+        months.append('\n'.join(out))
+
+    return '\n\n'.join(months)
+
+weather = get_weather()
+cal_text = get_calendar()
+tooltip = f"<span size='large'>{weather}</span>\n\n<tt>{cal_text}</tt>"
+
+print(json.dumps({"text": "󰃵", "tooltip": tooltip}))
