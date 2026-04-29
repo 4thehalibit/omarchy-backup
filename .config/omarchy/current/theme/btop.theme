@@ -1,0 +1,71 @@
+# Theme: Mission Control
+# Houston Astros inspired dark theme
+
+# Main bg
+theme[main_bg]="#211414"
+
+# Main text color
+theme[main_fg]="#DAD5D8"
+
+# Title color for boxes
+theme[title]="#DAD5D8"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#D76725"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#474647"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#DAD5D8"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#353334"
+
+# Misc colors for processes box
+theme[proc_misc]="#D76725"
+
+# Box outline colors
+theme[cpu_box]="#474647"
+theme[mem_box]="#474647"
+theme[net_box]="#474647"
+theme[proc_box]="#474647"
+
+# Box divider line
+theme[div_line]="#353334"
+
+# Temperature graph: slate → orange → red
+theme[temp_start]="#697A94"
+theme[temp_mid]="#D76725"
+theme[temp_end]="#741106"
+
+# CPU graph: slate → orange → red
+theme[cpu_start]="#697A94"
+theme[cpu_mid]="#D76725"
+theme[cpu_end]="#741106"
+
+# Mem/Disk meters
+theme[free_start]="#697A94"
+theme[free_mid]="#D76725"
+theme[free_end]="#741106"
+
+theme[cached_start]="#697A94"
+theme[cached_mid]="#D76725"
+theme[cached_end]="#741106"
+
+theme[available_start]="#697A94"
+theme[available_mid]="#D76725"
+theme[available_end]="#741106"
+
+theme[used_start]="#697A94"
+theme[used_mid]="#D76725"
+theme[used_end]="#741106"
+
+# Network graphs
+theme[download_start]="#697A94"
+theme[download_mid]="#D76725"
+theme[download_end]="#741106"
+
+theme[upload_start]="#697A94"
+theme[upload_mid]="#D76725"
+theme[upload_end]="#741106"
